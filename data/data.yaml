@@ -1,18 +1,17 @@
-#用户登录成功
-#url: http://localhost:8080/dangdang/cart/cartBuy
-#method: get
-##data: '{"username":"无涯","password":"123123","age":15,"sex":"男"}'
-#headers:
-#  Cookie: JSESSIONID=5B8F25A49F7DCE4A59C9ACE5587B6719; Pycharm-2f240916=3a883774-401b-45c8-904e-7658458e89cd
-#data:
-#  id:  2
-#except: True
+##用户登录成功
+url: http://localhost:8080/dangdang/user/login
+method: post
+data:
+  user.email: 2442855630@qq.com
+  user.password: 123123
+  uri:
+except: 您好，欢迎光临乐科二手图书网
 ---
 ##用户登录失败
 url: http://localhost:8080/dangdang/user/login
 method: post
 data:
-  user.email: 2442855630@qq.com
+  user.email:
   user.password: 123123
   uri:
 except: 您好，欢迎光临乐科二手图书网

@@ -45,12 +45,6 @@ class ExcelVarles:
 	def getHeaderss(self):
 		return self.headerss
 
-class OperationExcel(OperationYaml):#2个类都需要实例化，所以需要继承
-	def getSheet(self):
-		'''获取sheet（一般只会用一个sheet，会从下标获取）'''
-		workbook = xlrd.open_workbook(filePath('data','dangdang.xls'))
-		return workbook.sheet_by_index(0)
-
 	# @property
 	# def getRows(self):
 	# 	'''获取总共行数（可变）'''
@@ -59,7 +53,11 @@ class OperationExcel(OperationYaml):#2个类都需要实例化，所以需要继
 	# def getCols(self):
 	# 	'''获取总列（不变）'''
 	# 	return self.getSheet().ncols
-
+class OperationExcel(OperationYaml):#2个类都需要实例化，所以需要继承
+	def getSheet(self):
+		'''获取sheet（一般只会用一个sheet，会从下标获取）'''
+		workbook = xlrd.open_workbook(filePath('data','dangdang.xls'))
+		return workbook.sheet_by_index(0)
 	def getValue(self,row,col):
 		'''获取具体单元格数据'''
 		return self.getSheet().cell_value(row,col)
@@ -105,6 +103,6 @@ if __name__ == '__main__':
 
 	# print(obj.getValue(1,4))
 	# print(obj.getDataValue(row=1))
-	print(obj.getHeaderss(row=2))
+	print(obj.getHeaderss(row=4))
 	# print(obj.getUrl(row=2))
 	# print(utils.readConfig.getEnvironment()[0])

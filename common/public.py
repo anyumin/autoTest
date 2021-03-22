@@ -11,13 +11,17 @@ def filePath(fileDir='data',fileName='data.yaml'):
 # print(filePath('data','data.yaml'))
 def writeContent(content,fileName):
 	'''动态参数可以写到目标文件中'''
-	with open(filePath(fileDir='data',fileName=fileName),"w") as f:
+	with open(filePath(fileDir='data',fileName=fileName),"w",encoding="utf-8") as f:
 		f.write(str(content))
 
 def readContent(fileName):
 	'''可以从上面目标文件中读取到响应内容'''
-	with open(filePath(fileDir='data',fileName=fileName),"r") as f:
+	with open(filePath(fileDir='data',fileName=fileName),"r",encoding="utf-8") as f:
 		return f.read()
 
 # writeContent(1,"testwe")
-# print(readContent("testwe"))
+# content = {"name":"雪碧","price":12,"itemId":"45678600"}
+# writeContent(content = content,fileName="testfile")
+
+# content = readContent("testfile")
+# print(type(content))
